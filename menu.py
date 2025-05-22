@@ -31,6 +31,10 @@ def main():
         print(Style.RESET_ALL)
         opcion = input(Fore.CYAN + "Seleccione una opción (1-7): ").strip()
 
+        if not opcion.isdigit() or not (1 <= int(opcion) <= 7):
+            print(Fore.RED + "Opción no válida. Intente nuevamente.")
+            continue
+
         try:
             if opcion == "1":
                 registrar_producto()
