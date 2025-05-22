@@ -30,10 +30,6 @@ def input_con_volver(mensaje):
     return valor
 
 
-# Aquí van las funciones: registrar_producto, mostrar_productos, buscar_producto, actualizar_producto, eliminar_producto, reporte_bajo_stock
-# Copia cada función desde tu archivo actual y reemplaza las llamadas a conectar() por db.conectar() si es necesario.
-
-
 # Función para registrar un nuevo producto
 def registrar_producto():
     """

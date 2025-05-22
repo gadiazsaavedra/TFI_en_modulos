@@ -14,10 +14,13 @@ init(autoreset=True)
 
 def main():
     """
-    Función principal que inicia el menú interactivo del sistema de inventario.
-    Permite al usuario seleccionar distintas operaciones sobre los productos,
-    como agregar, mostrar, buscar, actualizar, eliminar y generar reportes.
-    En todas las opciones donde se solicita un dato, puede escribir 'volver' para regresar al menú principal.
+    Inicia el menú interactivo principal del sistema de gestión de inventario.
+
+    Esta función crea la tabla de la base de datos si no existe y luego entra
+    en un bucle que presenta al usuario opciones para gestionar productos:
+    agregar, mostrar, buscar, actualizar, eliminar y generar reportes de stock.
+    El usuario puede escribir 'volver' en cualquier solicitud de datos para
+    regresar al menú principal. El bucle termina cuando el usuario elige salir.
     """
     crear_tabla()
     while True:

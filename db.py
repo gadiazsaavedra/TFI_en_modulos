@@ -21,9 +21,19 @@ def conectar():
 
 def crear_tabla():
     """
-    Crea la tabla 'productos' en la base de datos si no existe.
-    La tabla contiene los campos: id, nombre, descripcion, cantidad, precio y categoria.
-    Informa al usuario si la tabla se creó correctamente o si ocurrió un error.
+    Crea la tabla 'productos' en la base de datos 'inventario.db' si no existe.
+
+    La tabla 'productos' se define con los siguientes campos:
+        - id (INTEGER PRIMARY KEY AUTOINCREMENT): Identificador único del producto.
+        - nombre (TEXT NOT NULL): Nombre del producto.
+        - descripcion (TEXT): Descripción detallada del producto.
+        - cantidad (INTEGER NOT NULL): Cantidad en stock del producto.
+        - precio (REAL NOT NULL): Precio unitario del producto.
+        - categoria (TEXT): Categoría a la que pertenece el producto.
+
+    Side Effects:
+        - Imprime mensajes en la consola sobre el estado de la operación.
+        - Puede crear una tabla en la base de datos si esta no existe.
     """
     con = conectar()
     if con is not None:
