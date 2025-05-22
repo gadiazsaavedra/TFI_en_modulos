@@ -5,6 +5,13 @@ from colorama import Fore
 
 
 def conectar():
+    """
+    Establece una conexión con la base de datos 'inventario.db'.
+
+    Returns:
+        sqlite3.Connection: Objeto de conexión a la base de datos si es exitosa.
+        None: Si ocurre un error al conectar.
+    """
     try:
         return sqlite3.connect("inventario.db")
     except sqlite3.Error as e:
@@ -13,6 +20,11 @@ def conectar():
 
 
 def crear_tabla():
+    """
+    Crea la tabla 'productos' en la base de datos si no existe.
+    La tabla contiene los campos: id, nombre, descripcion, cantidad, precio y categoria.
+    Informa al usuario si la tabla se creó correctamente o si ocurrió un error.
+    """
     con = conectar()
     if con is not None:
         try:

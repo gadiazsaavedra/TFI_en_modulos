@@ -13,6 +13,11 @@ init(autoreset=True)
 
 
 def main():
+    """
+    Función principal que inicia el menú interactivo del sistema de inventario.
+    Permite al usuario seleccionar distintas operaciones sobre los productos,
+    como agregar, mostrar, buscar, actualizar, eliminar y generar reportes.
+    """
     crear_tabla()
     while True:
         print(Style.BRIGHT + Fore.BLUE + "\n===== Menú de Inventario =====")
@@ -49,4 +54,7 @@ def main():
 
 
 if __name__ == "__main__":
+    """
+    Punto de entrada del programa. Llama a la función principal para iniciar el menú.
+    """
     main()

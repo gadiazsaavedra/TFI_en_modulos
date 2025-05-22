@@ -5,10 +5,25 @@ import sqlite3
 
 
 def es_texto_valido(texto, max_len=50):
+    """
+    Valida que el texto solo contenga caracteres permitidos y no exceda la longitud máxima.
+    Args:
+        texto (str): Texto a validar.
+        max_len (int): Longitud máxima permitida.
+    Returns:
+        bool: True si es válido, False en caso contrario.
+    """
     return bool(re.match(r"^[\w\sáéíóúÁÉÍÓÚüÜñÑ.,-]{1," + str(max_len) + "}$", texto))
 
 
 def input_con_volver(mensaje):
+    """
+    Solicita un input al usuario y permite cancelar la operación escribiendo 'volver'.
+    Args:
+        mensaje (str): Mensaje a mostrar al usuario.
+    Returns:
+        str or None: Valor ingresado o None si el usuario escribe 'volver'.
+    """
     valor = input(mensaje).strip()
     if valor.lower() == "volver":
         return None
@@ -21,6 +36,10 @@ def input_con_volver(mensaje):
 
 # Función para registrar un nuevo producto
 def registrar_producto():
+    """
+    Solicita los datos de un nuevo producto, los valida y los registra en la base de datos.
+    Permite cancelar la operación escribiendo 'volver' en cualquier campo.
+    """
     print(Fore.CYAN + "\n--- Registrar Nuevo Producto ---")
     # Validar nombre no vacío y longitud/carácteres
     while True:
@@ -108,6 +127,10 @@ def registrar_producto():
 
 # Función para mostrar todos los productos
 def mostrar_productos():
+    """
+    Muestra todos los productos registrados en la base de datos.
+    Si no hay productos, informa al usuario.
+    """
     print(Fore.CYAN + "\n--- Lista de Productos ---")
     con = conectar()
     if con is None:
@@ -131,6 +154,10 @@ def mostrar_productos():
 
 # Función para buscar productos por ID, nombre o categoría
 def buscar_producto():
+    """
+    Permite buscar productos por ID, nombre o categoría.
+    Solicita el criterio de búsqueda y muestra los resultados encontrados.
+    """
     print(Fore.CYAN + "\n--- Buscar Producto ---")
     print("1. Buscar por ID")
     print("2. Buscar por nombre")
@@ -211,6 +238,10 @@ def buscar_producto():
 
 # Función para actualizar un producto por ID
 def actualizar_producto():
+    """
+    Permite actualizar los datos de un producto existente por su ID.
+    Solicita los nuevos valores y valida cada campo antes de actualizar.
+    """
     print(Fore.CYAN + "\n--- Actualizar Producto ---")
     id_actualizar = input("Ingrese el ID del producto a actualizar: ").strip()
     if not id_actualizar.isdigit():
@@ -312,6 +343,9 @@ def actualizar_producto():
 
 # Función para eliminar un producto por ID
 def eliminar_producto():
+    """
+    Elimina un producto de la base de datos por su ID, previa confirmación del usuario.
+    """
     print(Fore.CYAN + "\n--- Eliminar Producto ---")
     id_eliminar = input("Ingrese el ID del producto a eliminar: ").strip()
     if not id_eliminar.isdigit():
@@ -351,6 +385,9 @@ def eliminar_producto():
 
 # Función para mostrar productos con bajo stock
 def reporte_bajo_stock():
+    """
+    Muestra un reporte de productos cuyo stock es igual o menor al valor indicado por el usuario.
+    """
     print(Fore.CYAN + "\n--- Reporte de Bajo Stock ---")
     limite = input("Mostrar productos con cantidad igual o menor a: ").strip()
     if not limite.isdigit():
