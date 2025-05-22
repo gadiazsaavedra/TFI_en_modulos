@@ -26,23 +26,26 @@ def main():
         print(Style.RESET_ALL)
         opcion = input(Fore.CYAN + "Seleccione una opción (1-7): ").strip()
 
-        if opcion == "1":
-            registrar_producto()
-        elif opcion == "2":
-            mostrar_productos()
-        elif opcion == "3":
-            buscar_producto()
-        elif opcion == "4":
-            actualizar_producto()
-        elif opcion == "5":
-            eliminar_producto()
-        elif opcion == "6":
-            reporte_bajo_stock()
-        elif opcion == "7":
-            print(Fore.BLUE + "Saliendo del sistema. ¡Hasta luego!")
-            break
-        else:
-            print(Fore.RED + "Opción no válida. Intente nuevamente.")
+        try:
+            if opcion == "1":
+                registrar_producto()
+            elif opcion == "2":
+                mostrar_productos()
+            elif opcion == "3":
+                buscar_producto()
+            elif opcion == "4":
+                actualizar_producto()
+            elif opcion == "5":
+                eliminar_producto()
+            elif opcion == "6":
+                reporte_bajo_stock()
+            elif opcion == "7":
+                print(Fore.BLUE + "Saliendo del sistema. ¡Hasta luego!")
+                break
+            else:
+                print(Fore.RED + "Opción no válida. Intente nuevamente.")
+        except Exception as e:
+            print(Fore.RED + f"Ocurrió un error: {e}")
 
 
 if __name__ == "__main__":
