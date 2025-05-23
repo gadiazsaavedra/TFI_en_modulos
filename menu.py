@@ -17,17 +17,22 @@ def main():
     Función principal que inicia el menú interactivo del sistema de inventario.
     Permite al usuario seleccionar distintas operaciones sobre los productos,
     como agregar, mostrar, buscar, actualizar, eliminar y generar reportes.
+    En todas las opciones donde se solicita un dato, puede escribir 'volver' para regresar al menú principal.
     """
     crear_tabla()
     while True:
         print(Style.BRIGHT + Fore.BLUE + "\n===== Menú de Inventario =====")
-        print(Fore.YELLOW + "1. Agregar producto - (volver) regresa al Menú")
+        print(Fore.YELLOW + "1. Agregar producto")
         print(Fore.YELLOW + "2. Mostrar/Listar productos")
         print(Fore.YELLOW + "3. Buscar producto")
         print(Fore.YELLOW + "4. Actualizar producto por ID")
         print(Fore.YELLOW + "5. Eliminar producto por ID")
         print(Fore.YELLOW + "6. Reporte de bajo stock")
         print(Fore.YELLOW + "7. Salir")
+        print(
+            Fore.CYAN
+            + "(En cualquier opción donde se solicite un dato, escriba 'volver' para regresar al menú)"
+        )
         print(Style.RESET_ALL)
         opcion = input(Fore.CYAN + "Seleccione una opción (1-7): ").strip()
 
